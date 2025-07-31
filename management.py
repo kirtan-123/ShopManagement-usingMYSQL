@@ -1,10 +1,15 @@
 import mysql.connector as m
 from tabulate import tabulate
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 def admin():
     print("----------------------***----------------------------")  
     a = input("Enter password to access admin menu: ")
-    if a == "ABC123":
+    if a == os.getenv("ADMIN_PASSWORD"):
         adminmenu()
     else:
         print("Wrong password")
